@@ -15,7 +15,8 @@
     <title>Title</title>
 </head>
 <body>
-    <form action="/student/validate2" method="post">
+    <h1>Validate2 페이지</h1>
+    <form action="/student/validate2" method="get">
         이름 : <input type="text" name="name"><br />
         나이 : <input type="text" name="age"><br />
         학년 : <input type="text" name="gradeNum"><br />

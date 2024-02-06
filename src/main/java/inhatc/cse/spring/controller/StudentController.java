@@ -79,19 +79,21 @@ public class StudentController {
         return "student/validate";
     }
 
-    @RequestMapping(value = "/student/validate2", method = RequestMethod.GET)
+    @RequestMapping(value = "/student/validateForm2", method = RequestMethod.GET)
     public String validateForm2(){
-        return "student/validateForm";
+        return "student/validateForm2";
     }
-    @RequestMapping(value = "/student/validate2", method = RequestMethod.POST)
-    public String validate(@Valid StudentInfomation studentInfomation, BindingResult bindingResult, Model model){
+    @RequestMapping(value = "/student/validate2", method = RequestMethod.GET)
+    public String validate2(@Valid StudentInfomation studentInfomation, BindingResult bindingResult, Model model){
+
+        System.out.println("======================= Validation 체크 중 ..." + studentInfomation);
 
         if(bindingResult.hasErrors()){
             List<ObjectError> allErrors = bindingResult.getAllErrors();
             for (ObjectError error : allErrors) {
                 System.out.println(error.getDefaultMessage());
             }
-            return "student/validateForm";
+            return "student/validateForm2";
         }
 
         model.addAttribute("studentInfo", studentInfomation);
